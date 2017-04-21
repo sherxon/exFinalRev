@@ -1,3 +1,6 @@
-<h1>
-  {{title}}
-</h1>
+<ul>
+  <li><a  routerLink="students"> Students</a></li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ><a  routerLink="/"> Home</a></li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ><a  routerLink="ex"> Exercise</a></li>
+</ul>
+<router-outlet></router-outlet>
