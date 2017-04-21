@@ -12,13 +12,12 @@ export class SearchPipe implements PipeTransform {
     this.posts = posts;
     this.newposts = [];
     this.search(value);
-    console.log(this.newposts);
     return this.newposts;
   }
 
   search(value: string ) {
     console.log(value);
-    for ( const key in this.posts) {
+      for ( const key in this.posts) {
       if( this.posts[key].title.indexOf(value) >= 0  || value.length === 0) {
         this.newposts.push(this.posts[key]);
       }
