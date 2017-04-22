@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -13,6 +13,8 @@ import {ProfileGuard} from './profile/ProfileGuard';
 import { ExComponent } from './ex/ex.component';
 import { MyPostComponent } from './my-post/my-post.component';
 import {SearchPipe} from "./ex/SearchPipe";
+import { MyFormComponent } from './my-form/my-form.component';
+import { RFormComponent } from './rform/rform.component';
 
 const routes = [
   {path: '', component: HomeComponent},
@@ -25,7 +27,9 @@ const routes = [
         canActivate: [ProfileGuard]
       }
     ]
-  }, {path: 'ex', component: ExComponent}
+  }, {path: 'ex', component: ExComponent},
+  {path: 'form', component: MyFormComponent},
+  {path: 'rform', component: RFormComponent}
   ];
 
 @NgModule({
@@ -36,12 +40,15 @@ const routes = [
     ProfileComponent,
     ExComponent,
     MyPostComponent,
-    SearchPipe
+    SearchPipe,
+    MyFormComponent,
+    RFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [DBService, ProfileGuard, SearchPipe],
